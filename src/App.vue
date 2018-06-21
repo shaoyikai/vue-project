@@ -1,14 +1,9 @@
 <template>
     <div id="app">
-        <div v-if="isLogin" v-show="isShow">
-            <Header/>
-
-            <LeftMenu/>
-
-            <router-view/>
-
-            <Footer/>
-        </div>
+        <Header v-if="isLogin" v-show="isShow"/>
+        <LeftMenu v-if="isLogin" v-show="isShow"/>
+        <router-view v-if="isLogin" v-show="isShow"/>
+        <Footer v-if="isLogin" v-show="isShow" />
 
         <Login v-else="isLogin" v-show="!isShow"></Login>
     </div>
@@ -28,27 +23,28 @@
         name: 'App',
         data(){
             return {
-                ajaxCount: 0,
                 isLogin: true,
-                isShow: 0
+                isShow: false,
+                hasRequest: false
             }
         },
         mounted() {
             // 首次获取登录数据
-            this.getLoginData()
+            if(!this.hasRequest){
+                this.getLoginData()
+            }
             // 5秒钟请求一次是否登录
             setInterval(this.getLoginData, 5000)
         },
         methods: {
             getLoginData: function () {
-                this.ajaxCount += 1;
 
-                // console.log('refresh login data every 5 second: '+ this.ajaxCount)
                 var vm = this
-                axios.get('./static/data/login.json')
+                axios.get('/static/data/login.json')
                         .then(function (res) {
                             vm.isLogin = res.data.isLogin
                             vm.isShow = vm.isLogin
+                            vm.hasRequest = true
                         })
                         .catch(function (err) {
                             vm.answer = 'Error! Could not reach the API. ' + err
