@@ -45,7 +45,7 @@
 
                 // console.log('refresh login data every 5 second: '+ this.ajaxCount)
                 var vm = this
-                axios.get('http://demo.test.com/api/login.php')
+                axios.get('./static/data/login.json')
                         .then(function (res) {
                             vm.isLogin = res.data.isLogin
                             vm.isShow = vm.isLogin
