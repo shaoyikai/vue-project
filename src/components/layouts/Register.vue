@@ -8,7 +8,7 @@
                 <h2 class="ui teal image header">
                     <!--<img src="assets/images/logo.png" class="image">-->
                     <div class="content">
-                        登录系统
+                        注册用户
                     </div>
                 </h2>
                 <form class="ui large form">
@@ -25,6 +25,12 @@
                                 <input type="password" name="password" placeholder="输入密码">
                             </div>
                         </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password2" name="password2" placeholder="确认密码">
+                            </div>
+                        </div>
                         <div class="ui fluid large teal submit button">登录</div>
                     </div>
 
@@ -33,7 +39,7 @@
                 </form>
 
                 <div class="ui message">
-                    新用户？ <a href="/register">注册</a>
+                    已有账号？ <a href="/login">去登录</a>
                 </div>
             </div>
         </div>
@@ -43,12 +49,13 @@
 <script>
   import axios from 'axios'
   export default{
-    name: 'Login',
+    name: 'Register',
     data () {
       return {
         isShow: false,
         username: 'test',
         password: 'test',
+        password2: '',
         hasRequest: false,
         timer: null,
       }

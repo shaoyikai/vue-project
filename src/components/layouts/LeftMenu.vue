@@ -1,7 +1,7 @@
 <template>
-    <div class="ui vertical menu" id="left-menu">
+    <div class="ui vertical menu two wide column" id="left-menu">
         <div class="item">
-            <div class="header">Products</div>
+            <div class="header"></div>
             <div class="menu">
                 <a class="item">Enterprise</a>
                 <a class="item">Consumer</a>
@@ -38,8 +38,6 @@
     }
 </script>
 
-<style scoped>
-#left-menu{
-    float:left;
-}
+<style>
+
 </style>
