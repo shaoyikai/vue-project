@@ -6,6 +6,8 @@ import Register from '@/components/layouts/Register'
 import ProjectList from '@/components/project/List'
 import ProjectCreate from '@/components/project/Create'
 import ApiList from '@/components/api/List'
+import ApiCreate from '@/components/api/Create'
+import ApiUpdate from '@/components/api/Update'
 
 Vue.use(Router)
 
@@ -41,6 +43,16 @@ export default new Router({
       path: '/api/list',
       name: 'ApiList',
       component: ApiList
+    },
+    {
+      path: '/api/create',
+      name: 'ApiCreate',
+      component: ApiCreate
+    },
+    {
+      path: '/api/update',
+      name: 'ApiUpdate',
+      component: ApiUpdate
     }
   ]
 })

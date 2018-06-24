@@ -1,53 +1,39 @@
 <template>
     <div class="fourteen wide column">
-        <p id="breadcrumb">
-            <a href="/">首页</a>
-            >
-            新建项目
-        </p>
+        <Breadcrumb />
+        <h2 class="ui header">新建项目</h2>
 
-        <div class="ui grid">
-            <div class="five wide column">
-
-                <form class="ui form">
-                    <div class="field">
-                        <label>Project Name</label>
-                        <input type="text" name="project-name" placeholder="Project Name">
-                    </div>
-                    <div class="field">
-                        <label>Project Code</label>
-                        <input type="text" name="project-code" placeholder="Project Code">
-                    </div>
-
-                    <button class="ui button" type="submit">Submit</button>
-                </form>
+        <div class="ui form">
+            <div class="inline field">
+                <label>项目名称</label>
+                <input type="text" name="project-name" placeholder="2 - 20个字符">
+            </div>
+            <div class="inline field">
+                <label>项目编码</label>
+                <input type="text" name="project-code" placeholder="项目标识符">
             </div>
 
+            <button class="ui button primary" type="submit">保存</button>
         </div>
-
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'Create',
-        data () {
-            return {
-                msg: ''
-            }
-        }
+  import Breadcrumb from '../../components/widget/Breadcrumb.vue'
+  export default {
+    name: 'Create',
+    components:{
+      Breadcrumb
+    },
+    data () {
+      return {
+        msg: ''
+      }
     }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    #breadcrumb {
-        text-align: left;
-    }
-    label{
-        text-align:left;
-    }
-    form{
-        text-align:left;
-    }
+
 </style>

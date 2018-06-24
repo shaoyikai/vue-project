@@ -1,11 +1,13 @@
 <template>
     <div class="fourteen wide column" v-if="isShow">
+        <Breadcrumb/>
         <h1>{{ msg }}</h1>
     </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import Breadcrumb from '../../components/widget/Breadcrumb.vue'
   export default {
     name: 'Home',
     data () {
@@ -13,6 +15,9 @@
         isShow: false,
         msg: 'Welcome to Home Page'
       }
+    },
+    components:{
+      Breadcrumb
     },
     mounted(){
       // 以下组件有相似代码

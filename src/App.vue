@@ -2,15 +2,11 @@
     <div id="app">
         <Header v-if="isLogin" v-show="isShow"/>
         <div id="empty-box"></div>
-
         <div class="ui grid">
             <div class="one wide column"></div>
-            <LeftMenu v-if="showLeftMenu" v-show="isShow"/>
             <router-view/>
         </div>
-
         <Footer v-if="isLogin" v-show="isShow"/>
-
     </div>
 </template>
 
@@ -21,7 +17,6 @@
   import './assets/semantic/semantic.min.js'
   import Header from './components/layouts/Header.vue'
   import Footer from './components/layouts/Footer.vue'
-  import LeftMenu from './components/layouts/LeftMenu.vue'
   import Login from './components/layouts/Login.vue'
   import Register from './components/layouts/Register.vue'
 
@@ -32,7 +27,6 @@
         isLogin: false,
         isRegister: false,
         isShow: false,
-        showLeftMenu: false,
         hasRequest: false,
         timer: null,
         routerName: ''
@@ -79,7 +73,6 @@
     components: {
       Header,
       Footer,
-      LeftMenu,
       Login,
       Register
     }
