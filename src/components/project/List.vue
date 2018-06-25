@@ -26,7 +26,7 @@
                 <td class="right aligned">
                     <a href="#">删除</a>
                     <br>
-                    <a :href="'/api/list?code=' + item.code">接口列表</a>
+                    <router-link :to="'/api/list?code=' + item.code">接口列表</router-link>
                 </td>
 
             </tr>

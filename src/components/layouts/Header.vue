@@ -1,14 +1,15 @@
 <template>
     <header class="ui fixed inverted menu">
-        <a class="item" href="/">
+        <router-link class="item" to="/">
             <img src="../../assets/logo.png" height="30"/> LOGO
-        </a>
-        <a class="item active" href="/project/list">
+        </router-link>
+
+        <router-link class="item active" to="/project/list">
             项目管理
-        </a>
-        <a class="item" href="/project/create">
+        </router-link>
+        <router-link class="item" to="/project/create">
             创建
-        </a>
+        </router-link>
         <div class="right menu">
             <div class="item">
                 <div class="ui icon input">

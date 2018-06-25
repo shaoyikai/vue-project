@@ -9,9 +9,11 @@
             <div class="eleven wide column">
                 <h1 class="ui header">ProjectA接口</h1>
 
-                <button class="create-btn ui button small primary">
-                    <a href="/api/create?code=projectA">添加</a>
-                </button>
+
+                    <router-link to="/api/create?code=projectA">
+                        <button class="create-btn ui button small primary">添加 </button>
+                    </router-link>
+
 
                 <div v-for="item in [1,2]">
                     <h3 class="ui header blue">
@@ -19,8 +21,8 @@
                     </h3>
                     <p class="action-box" v-if="1">
                         [
-                        <a href="">编辑</a> |
-                        <a href="">删除</a>
+                        <router-link to="">编辑</router-link> |
+                        <router-link to="">删除</router-link>
                         ]
                     </p>
                     <table class="ui table celled">

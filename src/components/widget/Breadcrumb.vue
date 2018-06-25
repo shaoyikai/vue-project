@@ -1,6 +1,6 @@
 <template>
     <p id="breadcrumb">
-        <a href="/">首页</a>
+        <router-link to="/">首页</router-link>
         >
         工程管理
     </p>

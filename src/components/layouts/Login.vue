@@ -33,7 +33,7 @@
                 </form>
 
                 <div class="ui message">
-                    新用户？ <a href="/register">注册</a>
+                    新用户？ <router-link to="/register">注册</router-link>
                 </div>
             </div>
         </div>
