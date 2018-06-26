@@ -47,19 +47,18 @@
         this.$validator.validate().then(function (result) {
           if (result) {
 
-            let uri = '/local/static/data/login.json';
+            let uri = '/test/index.php';
             // 提交数据到api进行处理
-            vm.axios.post(uri, {
-                  projectName: vm.projectName,
-                  projectCode: vm.projectCode
-                })
-                .then(function (res) {
-                  console.log(22,res)
-                  //vm.$router.push({path: '/project/list'})
-                })
-                .catch(function (err) {
-                  vm.answer = 'Error! Could not reach the API. ' + err
-                })
+            vm.axios.post(uri, {name: vm.projectName, code: vm.projectCode})
+              .then(function (res) {
+                console.log(res.data)
+                if (res.data.name === 'abc') {
+                  vm.$router.push({path: '/project/list'})
+                }
+              })
+              .catch(function (err) {
+                vm.answer = 'Error! Could not reach the API. ' + err
+              })
           }
         });
 

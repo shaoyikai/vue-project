@@ -7469,7 +7469,7 @@ vary@~1.1.2:
 
 vee-validate@^2.1.0-beta.3:
   version "2.1.0-beta.3"
-  resolved "http://registry.npm.taobao.org/vee-validate/download/vee-validate-2.1.0-beta.3.tgz#b3573cc3fe0f9d757655d3b11ca5f39e052f0856"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.1.0-beta.3.tgz#b3573cc3fe0f9d757655d3b11ca5f39e052f0856"
 
 vendors@^1.0.0:
   version "1.0.2"
