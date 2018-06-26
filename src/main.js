@@ -5,7 +5,10 @@ import App from './App'
 import router from './router'
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import VeeValidate from 'vee-validate';
+import veeConfig from './common/vee-validate/config'
 
+Vue.use(VeeValidate, veeConfig)
 Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false
