@@ -1,17 +1,17 @@
 <template>
-    <div id="app">
-        <Header v-if="isLogin" v-show="isShow"/>
-        <div id="empty-box"></div>
-        <div class="ui grid">
-            <div class="one wide column"></div>
-            <router-view/>
-        </div>
-        <Footer v-if="isLogin" v-show="isShow"/>
+  <div id="app">
+    <Header v-if="isLogin" v-show="isShow"/>
+    <div id="empty-box"></div>
+    <div class="ui grid">
+      <div class="one wide column"></div>
+      <router-view/>
     </div>
+    <Footer v-if="isLogin" v-show="isShow"/>
+  </div>
 </template>
 
 <script>
-  import axios from 'axios'
+
   import './assets/tools/jquery-3.1.1.min.js'
   import './assets/tools/jquery-ui-1.12.1/jquery-ui.min.css'
   import './assets/tools/jquery-ui-1.12.1/jquery-ui.min.js'
@@ -52,24 +52,27 @@
         // Home.vue
         // App.vue
         let vm = this
-        axios.get('/static/data/login.json')
-          .then(function (res) {
-            vm.isLogin = res.data.isLogin
-            vm.isShow = vm.isLogin
-            vm.hasRequest = true
+        let uri = '/local/static/data/login.json';
+        this.axios.get(uri).then(function (res) {
+              vm.isLogin = res.data.isLogin
+              vm.isShow = res.data.isLogin
+              vm.hasRequest = true
 
-            // 如果已经没有登录
-            // 并且routerName不是Login或Register
-            // 跳转到login页面
-            if (!res.data.isLogin) {
-              if(((vm.routerName !== 'Login') && (vm.routerName !== 'Register'))){
-                location.href = '/login'
+              // 如果已经没有登录
+              // 并且routerName不是Login，也不是Register
+              // 则跳转到login页面
+              if (!res.data.isLogin) {
+                let routerName = vm.$router.currentRoute.name
+
+                if ((routerName !== 'Login') && (routerName !== 'Register')) {
+                  location.href='/login'
+                  vm.$router.push({path: '/login'})
+                }
               }
-            }
-          })
-          .catch(function (err) {
-            vm.answer = 'Error! Could not reach the API. ' + err
-          })
+            })
+            .catch(function (err) {
+              vm.answer = 'Error! Could not reach the API. ' + err
+            })
       }
     },
     components: {
@@ -81,16 +84,16 @@
   }
 </script>
 
-<style scoped>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-    }
+<style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
 
-    #empty-box {
-        height: 60px;
-    }
+  #empty-box {
+    height: 60px;
+  }
 </style>

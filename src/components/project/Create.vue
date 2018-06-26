@@ -3,18 +3,18 @@
         <Breadcrumb />
         <h2 class="ui header">新建项目</h2>
 
-        <div class="ui form">
+        <form class="ui form" v-on:submit.prevent="onSubmit">
             <div class="inline field">
                 <label>项目名称</label>
-                <input type="text" name="project-name" placeholder="2 - 20个字符">
+                <input type="text" v-model="projectName" placeholder="2 - 20个字符">
             </div>
             <div class="inline field">
                 <label>项目编码</label>
-                <input type="text" name="project-code" placeholder="项目标识符">
+                <input type="text" v-model="projectCode" placeholder="项目标识符">
             </div>
 
             <button class="ui button primary" type="submit">保存</button>
-        </div>
+        </form>
     </div>
 </template>
 
@@ -27,9 +27,15 @@
     },
     data () {
       return {
-        msg: ''
+        projectName: '',
+        projectCode: ''
       }
-    }
+    },
+      methods:{
+          onSubmit:function(){
+              alert(this.projectName)
+          }
+      }
   }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
-    <div class="fourteen wide column" v-if="isShow">
-        <Breadcrumb/>
-        <h1>{{ msg }}</h1>
-    </div>
+  <div class="fourteen wide column" v-if="isShow">
+    <Breadcrumb/>
+    <h1>{{ msg }}</h1>
+  </div>
 </template>
 
 <script>
@@ -16,7 +16,7 @@
         msg: 'Welcome to Home Page'
       }
     },
-    components:{
+    components: {
       Breadcrumb
     },
     mounted(){
@@ -26,38 +26,38 @@
       // Home.vue
       // App.vue
       let vm = this
-      axios.get('/static/data/login.json')
-        .then(function (res) {
-          if (res.data.isLogin) {
-            vm.isShow = true;
-          } else {
-            location.href = "/login"
-          }
-        })
-        .catch(function (err) {
-          vm.answer = 'Error! Could not reach the API. ' + err
-        })
+      let uri = '/local/static/data/login.json';
+      this.axios.get(uri).then(function (res) {
+            if (res.data.isLogin) {
+              vm.isShow = true;
+            } else {
+              vm.$router.push({ path: '/login' })
+            }
+          })
+          .catch(function (err) {
+            vm.answer = 'Error! Could not reach the API. ' + err
+          })
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    h1, h2 {
-        font-weight: normal;
-    }
+  h1, h2 {
+    font-weight: normal;
+  }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
 
-    a {
-        color: #42b983;
-    }
+  a {
+    color: #42b983;
+  }
 </style>
