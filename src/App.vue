@@ -12,7 +12,9 @@
 
 <script>
   import axios from 'axios'
-  import './assets/tools/jquery-3.1.1.min'
+  import './assets/tools/jquery-3.1.1.min.js'
+  import './assets/tools/jquery-ui-1.12.1/jquery-ui.min.css'
+  import './assets/tools/jquery-ui-1.12.1/jquery-ui.min.js'
   import './assets/semantic/semantic.min.css'
   import './assets/semantic/semantic.min.js'
   import Header from './components/layouts/Header.vue'
