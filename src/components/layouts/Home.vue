@@ -2,11 +2,21 @@
   <div class="fourteen wide column" v-if="isShow">
     <Breadcrumb/>
     <h1>{{ msg }}</h1>
+
+
+    Value: {{ count }}
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+    <button @click="incrementIfOdd">Increment if odd</button>
+    <button @click="incrementAsync">Increment async</button>
+    <div>
+      <div>Recent History (last 5 entries): {{ recentHistory }}</div>
+    </div>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
+  import { mapGetters, mapActions } from 'vuex'
   import Breadcrumb from '../../components/widget/Breadcrumb.vue'
   export default {
     name: 'Home',
@@ -16,6 +26,16 @@
         msg: 'Welcome to Home Page'
       }
     },
+    computed: mapGetters([
+      'count',
+      'recentHistory'
+    ]),
+    methods: mapActions([
+      'increment',
+      'decrement',
+      'incrementIfOdd',
+      'incrementAsync'
+    ]),
     components: {
       Breadcrumb
     },
